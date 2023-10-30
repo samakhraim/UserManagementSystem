@@ -5,11 +5,6 @@ public class Staff extends User {
 
         super(id,name,age,hourlyRate,totalHours);
     }
-    @Override
 
-    public String toString() {
-        return "Staff [ID: " + getId() + ", Name: " + getName() + ", Age: " + getAge() +
-                ", Hourly Rate: " + getHourlyRate() + ", Total Hours: " + getTotalHours() + "]";
-    }
 
 }

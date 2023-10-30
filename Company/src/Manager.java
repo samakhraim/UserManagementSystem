@@ -1,27 +1,25 @@
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manager extends User  {
+class Manager extends User {
 
-    private final List<User> managerStaffList;
-
-
-    public Manager (int id,String name,int age,double hourlyRate,int totalHours,List<User> managerStaff){
-        super(id,name,age,hourlyRate,totalHours);
-        this.managerStaffList=managerStaff;
+    private List<User> staffList;
+    public Manager(int id, String name, int age, double hourlyRate, int totalHours) {
+        super(id, name, age, hourlyRate, totalHours);
+        staffList=new ArrayList<User>();
     }
 
-    public List<User> getManagerStaffList(){
+    public void getManagerStaffList(DataBase staffData) {
         System.out.println("Staff List for Manager " + getName() + ":");
-        for (User staff : managerStaffList) {
-            System.out.println(staff);
+         staffList = staffData.getStaffForManager(this);
+        if (staffList != null && !staffList.isEmpty()) {
+            for (User staff : staffList) {
+                System.out.println(staff);
+            }
+        } else {
+            System.out.println("No staff assigned to this manager.");
         }
-        return null;
-    }
-    @Override
-    public String toString() {
-        return "Manager[ID: " + getId() + ", Name: " + getName() + ", Age: " + getAge() +
-                ", Hourly Rate: " + getHourlyRate() + ", Total Hours: " + getTotalHours() + "]";
     }
 
 }

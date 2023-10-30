@@ -1,35 +1,40 @@
 import java.util.ArrayList;
 import java.util.List;
-class Director extends User{
 
+class Director extends User {
+   private List<User> managerList ;
+   private List<User> staffList ;
 
-    List<User> directorManagerList;
-    List<User> directorStaffList;
-    public Director(int id, String name, int age, double hourlyRate, int totalHours,List<User> directorStaff ,List<User> directorManager) {
+    public Director(int id, String name, int age, double hourlyRate, int totalHours) {
         super(id, name, age, hourlyRate, totalHours);
-        this.directorStaffList=directorStaff;
-        this.directorManagerList=directorManager;
 
-    }
-    public List<User> getDirectorManagerList(){
-        System.out.println("Staff List for Manager " + getName() + ":");
-        for (User manager : directorManagerList) {
-            System.out.println(manager);
-        }
-        return null;
+        staffList=new ArrayList<>();
+        managerList=new ArrayList<>();
     }
 
-    public List<User> getDirectorStaffList(){
-        System.out.println("Staff List for Manager " + getName() + ":");
-        for (User manager : directorManagerList) {
-            System.out.println(manager);
+    public void getDirectorStaffList(DataBase staffData) {
+        System.out.println("Staff List for Director " + getName() + ":");
+         staffList = staffData.getStaffForDirector(this);
+        if (staffList != null && !staffList.isEmpty()) {
+            for (User staff : staffList) {
+                System.out.println(staff);
+            }
+        } else {
+            System.out.println("No staff assigned to this Director.");
         }
-        return null;
     }
-    @Override
-    public String toString() {
-        return "Director [ID: " + getId() + ", Name: " + getName() + ", Age: " + getAge() +
-                ", Hourly Rate: " + getHourlyRate() + ", Total Hours: " + getTotalHours() + "]";
+
+    public void getDirectorManagerList(DataBase managerData) {
+        System.out.println("Manager List for Director " + getName() + ":");
+         managerList = managerData.getManagerForDirector(this);
+        if (managerList != null && !managerList.isEmpty()) {
+            for (User manager : managerList) {
+                System.out.println(manager);
+            }
+        } else {
+            System.out.println("No managers assigned to this Director.");
+        }
     }
+
 
 }

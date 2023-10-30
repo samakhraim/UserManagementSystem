@@ -1,19 +1,25 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
+        User staff1 = new Staff(11820, "Sama", 15, 0.55, 8);
+        User staff2 = new Staff(1, "SS", 15, 0.55, 8);
+        User staff3 = new Staff(2, "John", 30, 0.65, 6);
+        User man = new Manager(6, "Yaman", 35, 4.5, 8);
+        User director = new Director(7, "Hind", 40, 6.2, 7);
 
+        DataBase staffData = new DataBase();
+        staffData.addStaffForManager(man, staff2);
+        staffData.addStaffForManager(man, staff1);
+        System.out.println();
+        staffData.addStaffForDirector(director, staff3);
+        staffData.addManagerForDirector(director, man);
+        System.out.println();
+        System.out.println();
+        staffData.addManagerForDirector(director, man);
 
-        User staff1 =new User(11820,"sama",15,0.55,8);
-        User staff2 =new User(1,"ss",15,0.55,8);
-        User manager=new Manager(5,"ahmad",44,5.2,7,List.of(staff2,staff1));
-
-        Manager manager1=new Manager(5,"ahmad",44,5.2,7,List.of(staff2,staff1));
-
-        System.out.println(manager1.getManagerStaffList());
+        StaffListReport managerReport = new StaffListReport(man, staffData);
+        managerReport.Generate();
+        StaffListReport direReport = new StaffListReport(director, staffData);
+        direReport.Generate();
 
 
 
