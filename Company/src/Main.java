@@ -21,6 +21,9 @@ public class Main {
         StaffListReport direReport = new StaffListReport(director, staffData);
         direReport.Generate();
 
+        BudgetReport directorBudgetReport =new BudgetReport(staffData,director);
+        directorBudgetReport.Generate();
+
 
 
     }
