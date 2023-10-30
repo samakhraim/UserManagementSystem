@@ -10,15 +10,18 @@ public class DataBase {
 
     public void addStaffForManager(User manager, User staff) {
         managerStaffMap.computeIfAbsent(manager, k -> new ArrayList<>()).add(staff);
+        System.out.println("Staff added to manager "+manager.getName());
     }
 
     public void addStaffForDirector(User director, User staff) {
         directorStaffMap.computeIfAbsent(director, k -> new ArrayList<>()).add(staff);
+        System.out.println("Staff added to director "+director.getName());
     }
 
 
     public void addManagerForDirector(User director, User manager) {
         directorManagerMap.computeIfAbsent(director, k -> new ArrayList<>()).add(manager);
+        System.out.println("Manager added to director "+director.getName());
     }
 
     public List<User> getStaffForManager(User manager) {
