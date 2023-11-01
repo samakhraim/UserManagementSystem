@@ -39,7 +39,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "[ID: " + getId() + ", Name: " + getName() + ", Age: " + getAge() +
-                ", Hourly Rate: " + getHourlyRate() + ", Total Hours: " + getTotalHours() + "]";
+        return "ID: " + getId() + ", Name: " + getName() + ", Age: " + getAge() +
+                ", Hourly Rate: " + getHourlyRate() + ", Total Hours: " + getTotalHours() + "";
     }
 }
