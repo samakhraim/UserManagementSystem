@@ -7,15 +7,13 @@ public class StaffListReport implements StaffListGenerator {
 
     @Override
     public void generateStaffListReport(DataBase dataBase) {
-        if (user instanceof Manager) {
-            Manager  manager = (Manager) user;
+        if (user instanceof Manager manager) {
             manager.getManagerStaffList(dataBase);
         }
         else
 
-            if (user instanceof Director) {
-            Director director = (Director) user;
-            director.getDirectorStaffList(dataBase);
+            if (user instanceof Director director) {
+                director.getDirectorStaffList(dataBase);
         }
     }
 }
