@@ -7,8 +7,6 @@ public class Main {
         User director = new Director(7, "Hind", 40, 6.2, 7);
 
 
-
-
         manager.userData.addStaffForManager(manager, staff2);
         manager.userData.addStaffForManager(manager, staff1);
         director.userData.addStaffForDirector(director, staff3);
@@ -17,18 +15,18 @@ public class Main {
         director.userData.addManagerForDirector(director, manager);
         System.out.println();
         StaffListReport managerReport = new StaffListReport(manager);
-        managerReport.generateStaffListReport(manager.userData);
+        managerReport.generateStaffListReport();
         System.out.println();
 
         StaffListReport direReport = new StaffListReport(director);
-        direReport.generateStaffListReport(director.userData);
+        direReport.generateStaffListReport();
         System.out.println();
 
-        IBudgetReport directorBudgetReport = new BudgetReport(director.userData, director);
+        IBudgetReport directorBudgetReport = new BudgetReport( director);
         directorBudgetReport.generateBudgetReport();
         System.out.println();
 
-        IBudgetReport managerBudgetReport = new BudgetReport(manager.userData, manager);
+        IBudgetReport managerBudgetReport = new BudgetReport( manager);
         managerBudgetReport.generateBudgetReport();
     }
 }

@@ -1,5 +1,5 @@
 interface StaffListGenerator {
-    void generateStaffListReport(DataBase dataBase) ;
+    void generateStaffListReport() ;
 
 
 }

@@ -3,7 +3,7 @@ import java.util.List;
 public class BudgetReport implements IBudgetReport {
     private final User user;
 
-    public BudgetReport(DataBase dataBase, User user) {
+    public BudgetReport( User user) {
         this.user = user;
     }
 
