@@ -1,11 +1,9 @@
 import java.util.List;
 
 public class BudgetReport implements IBudgetReport {
-    private final DataBase dataBase;
     private final User user;
 
     public BudgetReport(DataBase dataBase, User user) {
-        this.dataBase = dataBase;
         this.user = user;
     }
 
