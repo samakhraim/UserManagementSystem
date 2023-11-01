@@ -12,9 +12,9 @@ class Director extends User {
         managerList=new ArrayList<>();
     }
 
-    public void getDirectorStaffList(DataBase staffData) {
+    public void getDirectorStaffList() {
         System.out.println("Staff List for Director " + getName() + ":");
-         staffList = staffData.getStaffForDirector(this);
+         staffList = userData.getStaffForDirector(this);
         if (staffList != null && !staffList.isEmpty()) {
             for (User staff : staffList) {
                 System.out.println(staff);
@@ -24,9 +24,9 @@ class Director extends User {
         }
     }
 
-    public void getDirectorManagerList(DataBase managerData) {
+    public void getDirectorManagerList() {
         System.out.println("Manager List for Director " + getName() + ":");
-         managerList = managerData.getManagerForDirector(this);
+         managerList = userData.getManagerForDirector(this);
         if (managerList != null && !managerList.isEmpty()) {
             for (User manager : managerList) {
                 System.out.println(manager);

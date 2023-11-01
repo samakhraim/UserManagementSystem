@@ -10,9 +10,9 @@ class Manager extends User {
         staffList=new ArrayList<User>();
     }
 
-    public void getManagerStaffList(DataBase staffData) {
+    public void getManagerStaffList() {
         System.out.println("Staff List for Manager " + getName() + ":");
-         staffList = staffData.getStaffForManager(this);
+         staffList = userData.getStaffForManager(this);
         if (staffList != null && !staffList.isEmpty()) {
             for (User staff : staffList) {
                 System.out.println(staff);

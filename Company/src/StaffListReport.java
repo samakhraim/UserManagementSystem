@@ -9,10 +9,10 @@ public class StaffListReport implements StaffListGenerator {
     public void generateStaffListReport(DataBase dataBase) {
         if (user instanceof Manager) {
             Manager manager = (Manager) user;
-            manager.getManagerStaffList(dataBase);
+            manager.getManagerStaffList();
         } else if (user instanceof Director) {
             Director director = (Director) user;
-            director.getDirectorStaffList(dataBase);
+            director.getDirectorStaffList();
         }
     }
 }

@@ -8,6 +8,7 @@ public class User {
     private final  double hourlyRate;
     private final int totalHours;
 
+    DataBase userData;
 
     public User(int id,String name,int age,double hourlyRate,int totalHours){
         this.id=id;
@@ -15,6 +16,7 @@ public class User {
         this.age=age;
         this.hourlyRate=hourlyRate;
         this.totalHours=totalHours;
+        this.userData=new DataBase();
     }
 
     public int getId(){

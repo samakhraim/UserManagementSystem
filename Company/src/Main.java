@@ -5,28 +5,30 @@ public class Main {
         User staff3 = new Staff(2, "sami", 30, 0.65, 6);
         User manager = new Manager(6, "Yaman", 35, 4.5, 8);
         User director = new Director(7, "Hind", 40, 6.2, 7);
-        DataBase staffData = new DataBase();
 
-        staffData.addStaffForManager(manager, staff2);
-        staffData.addStaffForManager(manager, staff1);
-        staffData.addStaffForDirector(director, staff3);
 
-        staffData.addManagerForDirector(director, manager);
-        staffData.addManagerForDirector(director, manager);
 
+
+        manager.userData.addStaffForManager(manager, staff2);
+        manager.userData.addStaffForManager(manager, staff1);
+        director.userData.addStaffForDirector(director, staff3);
+
+        director.userData.addManagerForDirector(director, manager);
+        director.userData.addManagerForDirector(director, manager);
+        System.out.println();
         StaffListReport managerReport = new StaffListReport(manager);
-        managerReport.generateStaffListReport(staffData);
+        managerReport.generateStaffListReport(manager.userData);
         System.out.println();
 
         StaffListReport direReport = new StaffListReport(director);
-        direReport.generateStaffListReport(staffData);
+        direReport.generateStaffListReport(director.userData);
         System.out.println();
 
-        IBudgetReport directorBudgetReport = new BudgetReport(staffData, director);
+        IBudgetReport directorBudgetReport = new BudgetReport(director.userData, director);
         directorBudgetReport.generateBudgetReport();
         System.out.println();
 
-        IBudgetReport managerBudgetReport = new BudgetReport(staffData, manager);
+        IBudgetReport managerBudgetReport = new BudgetReport(manager.userData, manager);
         managerBudgetReport.generateBudgetReport();
     }
 }
