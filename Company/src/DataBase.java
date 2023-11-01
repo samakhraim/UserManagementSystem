@@ -9,19 +9,35 @@ public class DataBase {
     private final Map<User, List<User>> directorManagerMap = new HashMap<>();
 
     public void addStaffForManager(User manager, User staff) {
-        managerStaffMap.computeIfAbsent(manager, k -> new ArrayList<>()).add(staff);
-        System.out.println("Staff added to manager "+manager.getName());
+        List<User> managerStaffList = managerStaffMap.get(manager);
+        if (managerStaffList == null) {
+            managerStaffList = new ArrayList<>();
+            managerStaffMap.put(manager, managerStaffList);
+        }
+        managerStaffList.add(staff);
+        System.out.println("Staff added to manager " + manager.getName());
     }
 
     public void addStaffForDirector(User director, User staff) {
-        directorStaffMap.computeIfAbsent(director, k -> new ArrayList<>()).add(staff);
-        System.out.println("Staff added to director "+director.getName());
+        List<User> directorStaffList = directorStaffMap.get(director);
+        if (directorStaffList == null) {
+            directorStaffList = new ArrayList<>();
+            directorStaffMap.put(director, directorStaffList);
+        }
+        directorStaffList.add(staff);
+        System.out.println("Staff added to director " + director.getName());
     }
 
 
     public void addManagerForDirector(User director, User manager) {
-        directorManagerMap.computeIfAbsent(director, k -> new ArrayList<>()).add(manager);
-        System.out.println("Manager added to director "+director.getName());
+      List<User> directorManagerList=directorManagerMap.get(director);
+      if(directorManagerList==null){
+          directorManagerList=new ArrayList<>();
+          directorManagerMap.put(director, directorManagerList);
+      }
+        directorManagerList.add(manager);
+        System.out.println("Manager added to director " + director.getName());
+
     }
 
     public List<User> getStaffForManager(User manager) {
