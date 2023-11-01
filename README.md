@@ -6,11 +6,11 @@ Using the Java design principle I am required to design and implement a small ap
 ![user management system (1)](https://github.com/samakhraim/UserManagementSystem/assets/62477773/10e09925-f386-4df9-a216-058aa5e585a6)
 This Object Oriented Project was done following the 5 rules of the SOLID principle.
 
-Single Responsibility
-Open-Closed Principle
-Liskov Substitution Principle
-Interface Segregation Principle
-Dependency Inversion Principle
+1-Single Responsibility
+2-Open-Closed Principle
+3-Liskov Substitution Principle
+4-Interface Segregation Principle
+5-Dependency Inversion Principle
 
 The class diagram consists of 9 different Objects.
 A User Object which serves as the main abstract class in our code.
