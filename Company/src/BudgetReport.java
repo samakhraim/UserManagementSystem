@@ -1,9 +1,9 @@
-
 import java.util.List;
 
-public class BudgetReport implements IReport {
-    private DataBase dataBase;
-    private User user;
+public class BudgetReport implements IBudgetReport{
+
+    private final DataBase dataBase;
+    private final User user;
 
     public BudgetReport(DataBase dataBase, User user) {
         this.dataBase = dataBase;
@@ -11,7 +11,7 @@ public class BudgetReport implements IReport {
     }
 
     @Override
-    public void Generate() {
+    public void generateBudgetReport() {
         if (user instanceof Manager) {
             generateManagerBudget((Manager) user);
         } else if (user instanceof Director) {
@@ -51,4 +51,5 @@ public class BudgetReport implements IReport {
         System.out.println("Budget Report for Director " + director.getName() + ":");
         System.out.println("Total Cost: $" + totalCost);
     }
+
 }

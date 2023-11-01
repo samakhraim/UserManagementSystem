@@ -1,4 +1,0 @@
-interface IReport  {
-
-     void Generate();
-}

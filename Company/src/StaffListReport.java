@@ -1,21 +1,22 @@
-public class StaffListReport implements IReport {
+public class StaffListReport implements StaffListGenerator {
+    private final User user;
 
-    private final  User user;
-    private final DataBase dataBase;
-
-    public StaffListReport(User user, DataBase dataBase) {
+    public StaffListReport(User user) {
         this.user = user;
-        this.dataBase = dataBase;
     }
 
     @Override
-    public void Generate() {
+    public void generateStaffListReport(DataBase dataBase) {
         if (user instanceof Manager) {
-            Manager manager = (Manager) user;
+            Manager  manager = (Manager) user;
             manager.getManagerStaffList(dataBase);
-        } else if (user instanceof Director) {
+        }
+        else
+
+            if (user instanceof Director) {
             Director director = (Director) user;
             director.getDirectorStaffList(dataBase);
         }
     }
 }
+
